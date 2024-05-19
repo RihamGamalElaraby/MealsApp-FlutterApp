@@ -53,15 +53,28 @@ const DUMMY_CATEGORIES = [
     title: 'Summer',
     color: Colors.teal,
   ),
+  // Additional categories
+  Category(
+    id: 'c11',
+    title: 'Mexican',
+    color: Colors.brown,
+  ),
+  Category(
+    id: 'c12',
+    title: 'Indian',
+    color: Colors.cyan,
+  ),
+  Category(
+    id: 'c13',
+    title: 'Desserts',
+    color: Colors.purpleAccent,
+  ),
 ];
 
 const DUMMY_MEALS = [
   Meal(
     id: 'm1',
-    categories: [
-      'c1',
-      'c2',
-    ],
+    categories: ['c1', 'c2'],
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
@@ -92,9 +105,7 @@ const DUMMY_MEALS = [
   ),
   Meal(
     id: 'm2',
-    categories: [
-      'c2',
-    ],
+    categories: ['c2'],
     title: 'Toast Hawaii',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
@@ -120,10 +131,7 @@ const DUMMY_MEALS = [
   ),
   Meal(
     id: 'm3',
-    categories: [
-      'c2',
-      'c3',
-    ],
+    categories: ['c2', 'c3'],
     title: 'Classic Hamburger',
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
@@ -142,7 +150,7 @@ const DUMMY_MEALS = [
       'Form 2 patties',
       'Fry the patties for c. 4 minutes on each side',
       'Quickly fry the buns for c. 1 minute on each side',
-      'Bruch buns with ketchup',
+      'Brush buns with ketchup',
       'Serve burger with tomato, cucumber and onion'
     ],
     isGlutenFree: false,
@@ -152,9 +160,7 @@ const DUMMY_MEALS = [
   ),
   Meal(
     id: 'm4',
-    categories: [
-      'c4',
-    ],
+    categories: ['c4'],
     title: 'Wiener Schnitzel',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Challenging,
@@ -178,7 +184,7 @@ const DUMMY_MEALS = [
       'Heat the butter and oil in a large pan (allow the fat to get very hot) and fry the schnitzels until golden brown on both sides.',
       'Make sure to toss the pan regularly so that the schnitzels are surrounded by oil and the crumbing becomes ‘fluffy’.',
       'Remove, and drain on kitchen paper. Fry the parsley in the remaining oil and drain.',
-      'Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.'
+      'Place the schnitzels on a warmed plate and serve garnished with parsley and slices of lemon.'
     ],
     isGlutenFree: false,
     isVegan: false,
@@ -187,11 +193,7 @@ const DUMMY_MEALS = [
   ),
   Meal(
     id: 'm5',
-    categories: [
-      'c2'
-          'c5',
-      'c10',
-    ],
+    categories: ['c2', 'c5', 'c10'],
     title: 'Salad with Smoked Salmon',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Simple,
@@ -212,7 +214,7 @@ const DUMMY_MEALS = [
     steps: [
       'Wash and cut salad and herbs',
       'Dice the salmon',
-      'Process mustard, vinegar and olive oil into a dessing',
+      'Process mustard, vinegar and olive oil into a dressing',
       'Prepare the salad',
       'Add salmon cubes and dressing'
     ],
@@ -223,10 +225,7 @@ const DUMMY_MEALS = [
   ),
   Meal(
     id: 'm6',
-    categories: [
-      'c6',
-      'c10',
-    ],
+    categories: ['c6', 'c10'],
     title: 'Delicious Orange Mousse',
     affordability: Affordability.Affordable,
     complexity: Complexity.Hard,
@@ -259,9 +258,7 @@ const DUMMY_MEALS = [
   ),
   Meal(
     id: 'm7',
-    categories: [
-      'c7',
-    ],
+    categories: ['c7'],
     title: 'Pancakes',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
@@ -283,16 +280,14 @@ const DUMMY_MEALS = [
       'Heat a lightly oiled griddle or frying pan over medium high heat.',
       'Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.'
     ],
-    isGlutenFree: true,
+    isGlutenFree: false,
     isVegan: false,
     isVegetarian: true,
     isLactoseFree: false,
   ),
   Meal(
     id: 'm8',
-    categories: [
-      'c8',
-    ],
+    categories: ['c8'],
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.Pricey,
     complexity: Complexity.Challenging,
@@ -323,9 +318,7 @@ const DUMMY_MEALS = [
   ),
   Meal(
     id: 'm9',
-    categories: [
-      'c9',
-    ],
+    categories: ['c9'],
     title: 'Chocolate Souffle',
     affordability: Affordability.Affordable,
     complexity: Complexity.Hard,
@@ -363,7 +356,7 @@ const DUMMY_MEALS = [
       'Mix until egg whites are thoroughly incorporated into the chocolate.',
       'Add the rest of the egg whites; gently fold into the chocolate with a spatula, lifting from the bottom and folding over.',
       'Stop mixing after the egg white disappears. Divide mixture between 2 prepared ramekins. Place ramekins on prepared baking sheet.',
-      'Bake in preheated oven until scuffles are puffed and have risen above the top of the rims, 12 to 15 minutes.',
+      'Bake in preheated oven until souffles are puffed and have risen above the top of the rims, 12 to 15 minutes.',
     ],
     isGlutenFree: true,
     isVegan: false,
@@ -372,11 +365,7 @@ const DUMMY_MEALS = [
   ),
   Meal(
     id: 'm10',
-    categories: [
-      'c2',
-      'c5',
-      'c10',
-    ],
+    categories: ['c2', 'c5', 'c10'],
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Simple,
@@ -403,5 +392,170 @@ const DUMMY_MEALS = [
     isVegan: true,
     isVegetarian: true,
     isLactoseFree: true,
+  ),
+  // Additional meals
+  Meal(
+    id: 'm11',
+    categories: ['c11'],
+    title: 'Tacos',
+    affordability: Affordability.Affordable,
+    complexity: Complexity.Simple,
+    imageUrl:
+        'https://www.thespruceeats.com/thmb/ses2M4uDBQ-Sk3RUoHqj1a8aXuY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chicken-tinga-tinga-de-pollo-4773239-Hero_01-1bd1d960c02a4fdb812323b8c60fd55b.jpg',
+    duration: 25,
+    ingredients: [
+      '8 Small Corn Tortillas',
+      '500g Ground Beef',
+      '1 Onion',
+      '1 Bell Pepper',
+      '2 Tomatoes',
+      '1 Can Black Beans',
+      'Lettuce',
+      'Cheese',
+      'Sour Cream',
+      'Taco Seasoning'
+    ],
+    steps: [
+      'Cook the ground beef with taco seasoning.',
+      'Chop the onion, bell pepper, and tomatoes.',
+      'Warm the tortillas.',
+      'Assemble the tacos with beef, beans, vegetables, cheese, and sour cream.'
+    ],
+    isGlutenFree: true,
+    isVegan: false,
+    isVegetarian: false,
+    isLactoseFree: false,
+  ),
+  Meal(
+    id: 'm12',
+    categories: ['c12'],
+    title: 'Butter Chicken',
+    affordability: Affordability.Pricey,
+    complexity: Complexity.Challenging,
+    imageUrl:
+        'https://hips.hearstapps.com/hmg-prod/images/del089923-butterchicken-web-130-ls-secondary-64d50dd6add91.jpg?resize=980:*',
+    duration: 60,
+    ingredients: [
+      '4 Chicken Breasts',
+      '1 Onion',
+      '2 Cloves of Garlic',
+      '1 Piece of Ginger',
+      '2 Tablespoons Butter',
+      '1 Can Tomato Sauce',
+      '1 Cup Heavy Cream',
+      'Spices (Garam Masala, Cumin, Coriander, Turmeric, Chili Powder)',
+      'Cilantro for garnish'
+    ],
+    steps: [
+      'Marinate the chicken with spices and yogurt.',
+      'Cook the chicken in butter until golden brown.',
+      'Sauté onion, garlic, and ginger.',
+      'Add tomato sauce and spices, simmer.',
+      'Add cream and cooked chicken, simmer until thickened.',
+      'Garnish with cilantro and serve with rice.'
+    ],
+    isGlutenFree: true,
+    isVegan: false,
+    isVegetarian: false,
+    isLactoseFree: false,
+  ),
+  Meal(
+    id: 'm13',
+    categories: ['c13'],
+    title: 'Cheesecake',
+    affordability: Affordability.Luxurious,
+    complexity: Complexity.Hard,
+    imageUrl:
+        'https://sugarspunrun.com/wp-content/uploads/2019/01/Best-Cheesecake-Recipe-2-1-of-1-7.jpg',
+    duration: 120,
+    ingredients: [
+      '200g Digestive Biscuits',
+      '100g Butter',
+      '400g Cream Cheese',
+      '200g Sugar',
+      '200ml Heavy Cream',
+      '2 Eggs',
+      '1 Teaspoon Vanilla Extract'
+    ],
+    steps: [
+      'Crush the biscuits and mix with melted butter, press into a springform pan.',
+      'Beat cream cheese and sugar until smooth.',
+      'Add eggs one at a time, then vanilla extract.',
+      'Fold in heavy cream.',
+      'Pour mixture over crust and bake at 160°C for 60 minutes.',
+      'Cool and refrigerate for at least 4 hours before serving.'
+    ],
+    isGlutenFree: false,
+    isVegan: false,
+    isVegetarian: true,
+    isLactoseFree: false,
+  ),
+  Meal(
+    id: 'm14',
+    categories: ['c1'],
+    title: 'Margherita Pizza',
+    affordability: Affordability.Affordable,
+    complexity: Complexity.Simple,
+    imageUrl:
+        'https://images.ctfassets.net/nw5k25xfqsik/64VwvKFqxMWQORE10Tn8pY/200c0538099dc4d1cf62fd07ce59c2af/20220211142754-margherita-9920.jpg?w=1024',
+    duration: 30,
+    ingredients: [
+      '1 Pizza Dough',
+      '1/2 cup Tomato Sauce',
+      '1 1/2 cups Mozzarella Cheese',
+      'Fresh Basil Leaves',
+      'Salt and Pepper',
+      'Olive Oil'
+    ],
+    steps: [
+      'Preheat your oven to 475°F (245°C).',
+      'Roll out the pizza dough and transfer it to a baking sheet.',
+      'Spread the tomato sauce evenly over the dough.',
+      'Sprinkle the mozzarella cheese over the sauce.',
+      'Bake in the preheated oven for 10-15 minutes or until the crust is golden brown.',
+      'Remove from the oven and top with fresh basil leaves, salt, pepper, and a drizzle of olive oil.'
+    ],
+    isGlutenFree: false,
+    isVegan: false,
+    isVegetarian: true,
+    isLactoseFree: false,
+  ),
+  Meal(
+    id: 'm15',
+    categories: ['c1'],
+    title: 'Risotto',
+    affordability: Affordability.Pricey,
+    complexity: Complexity.Challenging,
+    imageUrl:
+        'https://hips.hearstapps.com/hmg-prod/images/del089923-risotto-web-001-ab-index-64e7a1083b54e.jpg?crop=0.8888888888888888xw:1xh;center,top&resize=1200:*',
+    duration: 45,
+    ingredients: [
+      '1 cup Arborio Rice',
+      '4 cups Chicken or Vegetable Broth',
+      '1/2 cup White Wine',
+      '1/2 cup grated Parmesan Cheese',
+      '1/4 cup Butter',
+      '1/4 cup Olive Oil',
+      '1 Onion',
+      '2 cloves Garlic',
+      'Salt and Pepper',
+      'Fresh Parsley'
+    ],
+    steps: [
+      'Heat the broth in a saucepan and keep it warm over low heat.',
+      'In a separate large saucepan, heat the olive oil and butter over medium heat.',
+      'Add the chopped onion and cook until softened, about 5 minutes.',
+      'Add the garlic and cook for another minute.',
+      'Add the rice to the saucepan and cook, stirring frequently, until the rice is translucent around the edges, about 3-4 minutes.',
+      'Pour in the white wine and cook, stirring constantly, until it is absorbed by the rice.',
+      'Add a ladleful of warm broth to the rice and cook, stirring constantly, until the liquid is absorbed.',
+      'Continue adding the broth, one ladleful at a time, and cooking until the rice is creamy and tender, about 20-25 minutes.',
+      'Stir in the grated Parmesan cheese and season with salt and pepper to taste.',
+      'Garnish with chopped fresh parsley before serving.'
+    ],
+    isGlutenFree: true,
+    isVegan: false,
+    isVegetarian: true,
+    isLactoseFree: false,
   ),
 ];

@@ -3,10 +3,10 @@ import 'package:mealsapp/widgets/main_drawer.dart';
 
 class FiltersScreen extends StatefulWidget {
   const FiltersScreen({
-    super.key,
+    Key? key,
     required this.filters,
     required this.saveFilters,
-  });
+  }) : super(key: key);
 
   static const routeName = '/filters';
   final void Function(Map<String, bool>) saveFilters;
@@ -38,10 +38,36 @@ class _FiltersScreenState extends State<FiltersScreen> {
     void Function(bool) update,
   ) {
     return SwitchListTile(
-      title: Text(title),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      subtitle: Text(description),
       value: currentValue,
       onChanged: update,
-      subtitle: Text(description),
+      activeColor: Theme.of(context).primaryColor,
+    );
+  }
+
+  void _showSavedConfirmationDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Filters Saved"),
+          content: Text("Your filters have been saved."),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("OK"),
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -60,6 +86,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                 'vegetarian': vegetarian,
               };
               widget.saveFilters(selectedFilters);
+              _showSavedConfirmationDialog();
             },
             icon: Icon(Icons.done),
           ),
@@ -67,12 +94,16 @@ class _FiltersScreenState extends State<FiltersScreen> {
       ),
       drawer: MainDrawer(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: EdgeInsets.all(20),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
             child: Text(
               'Adjust your meals!',
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           Expanded(

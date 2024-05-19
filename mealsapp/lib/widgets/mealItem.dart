@@ -24,13 +24,10 @@ class MealItem extends StatelessWidget {
     switch (complexity) {
       case Complexity.Simple:
         return 'Simple';
-        break;
       case Complexity.Challenging:
         return 'Challenging';
-        break;
       case Complexity.Hard:
         return 'Hard';
-        break;
       default:
         return 'Unknown';
     }
@@ -40,13 +37,10 @@ class MealItem extends StatelessWidget {
     switch (affordability) {
       case Affordability.Affordable:
         return 'Affordable';
-        break;
       case Affordability.Pricey:
         return 'Pricey';
-        break;
       case Affordability.Luxurious:
         return 'Expensive';
-        break;
       default:
         return 'Unknown';
     }
@@ -69,11 +63,13 @@ class MealItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => selectMeal(context),
+      splashColor: Theme.of(context).primaryColor.withOpacity(0.3),
+      borderRadius: BorderRadius.circular(15),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
-        elevation: 4,
+        elevation: 6,
         margin: EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
@@ -96,7 +92,14 @@ class MealItem extends StatelessWidget {
                   right: 10,
                   child: Container(
                     width: 300,
-                    color: Colors.black54,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.black54, Colors.transparent],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     padding: EdgeInsets.symmetric(
                       vertical: 5,
                       horizontal: 20,
@@ -106,6 +109,13 @@ class MealItem extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 26,
                         color: Colors.white,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 10.0,
+                            color: Colors.black45,
+                            offset: Offset(3.0, 3.0),
+                          ),
+                        ],
                       ),
                       softWrap: true,
                       overflow: TextOverflow.fade,
@@ -119,38 +129,17 @@ class MealItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.schedule,
-                      ),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text('$duration min'),
-                    ],
+                  InfoRow(
+                    icon: Icons.schedule,
+                    text: '$duration min',
                   ),
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.work,
-                      ),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text(complexityText),
-                    ],
+                  InfoRow(
+                    icon: Icons.work,
+                    text: complexityText,
                   ),
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.attach_money,
-                      ),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text(affordabilityText),
-                    ],
+                  InfoRow(
+                    icon: Icons.attach_money,
+                    text: affordabilityText,
                   ),
                 ],
               ),
@@ -158,6 +147,39 @@ class MealItem extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class InfoRow extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  InfoRow({
+    required this.icon,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Icon(
+          icon,
+          color: Theme.of(context).primaryColor,
+        ),
+        SizedBox(
+          width: 6,
+        ),
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.grey[700],
+          ),
+        ),
+      ],
     );
   }
 }

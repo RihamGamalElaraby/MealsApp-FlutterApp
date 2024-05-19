@@ -3,19 +3,23 @@ import 'package:mealsapp/views/filtersScreen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
+
   Widget buildListTile(
-      String title, IconData icon, void Function()? tapHandeler) {
+      String title, IconData icon, void Function()? tapHandler) {
     return ListTile(
-      onTap: tapHandeler,
+      onTap: tapHandler,
       title: Text(
         title,
         style: TextStyle(
           fontFamily: 'RobotoCondensed',
-          fontSize: 24,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
-      leading: Icon(icon),
+      leading: Icon(
+        icon,
+        size: 26,
+      ),
     );
   }
 
@@ -27,11 +31,11 @@ class MainDrawer extends StatelessWidget {
           Container(
             height: 120,
             width: double.infinity,
-            padding: EdgeInsets.all(120),
-            // alignment: Alignment.centerLeft,
-            color: Colors.grey,
+            padding: EdgeInsets.all(20),
+            alignment: Alignment.centerLeft,
+            color: Theme.of(context).primaryColor,
             child: Text(
-              'Cooking Up !',
+              'Cooking Up!',
               style: TextStyle(
                 fontWeight: FontWeight.w900,
                 fontSize: 30,
@@ -45,7 +49,7 @@ class MainDrawer extends StatelessWidget {
           buildListTile('Meals', Icons.restaurant, () {
             Navigator.pushReplacementNamed(context, '/');
           }),
-          buildListTile('Filttered', Icons.settings, () {
+          buildListTile('Filtered', Icons.settings, () {
             Navigator.pushReplacementNamed(context, FiltersScreen.routeName);
           }),
         ],

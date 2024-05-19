@@ -7,12 +7,14 @@ import 'package:mealsapp/widgets/main_drawer.dart';
 class TabScreen extends StatefulWidget {
   TabScreen({super.key, required this.favourite});
   final List<Meal> favourite;
+
   @override
   State<TabScreen> createState() => _TabScreenState();
 }
 
 class _TabScreenState extends State<TabScreen> {
   late List<Map<dynamic, dynamic>> pages;
+  int selectedPageIndex = 0;
 
   @override
   void initState() {
@@ -28,7 +30,6 @@ class _TabScreenState extends State<TabScreen> {
     super.initState();
   }
 
-  int selectedPageIndex = 0;
   void selectPage(int index) {
     setState(() {
       selectedPageIndex = index;
@@ -37,50 +38,38 @@ class _TabScreenState extends State<TabScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // DefaultTabController(
-        //     length: 2,
-        //     child:
-        Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: Text(pages[selectedPageIndex]['title']),
-        // bottom: TabBar(tabs: [
-        //   Tab(
-        //     icon: Icon(Icons.category),
-        //     text: 'Categories',
-        //   ),
-        //   Tab(
-        //     icon: Icon(Icons.star),
-        //     text: 'Favourite',
-        //   ),
-        // ]),
+        elevation: 4, // Add elevation to the app bar
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text(
+          pages[selectedPageIndex]['title'],
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       drawer: MainDrawer(),
       body: pages[selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
-          onTap: selectPage,
-          currentIndex: selectedPageIndex,
-          unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.grey,
-          backgroundColor: Theme.of(context).primaryColor,
-          type: BottomNavigationBarType.shifting,
-          items: [
-            BottomNavigationBarItem(
-              backgroundColor: Theme.of(context).primaryColor,
-              label: 'Category',
-              icon: Icon(Icons.category),
-            ),
-            BottomNavigationBarItem(
-              // backgroundColor: Theme.of(context).primaryColor,
-              label: 'Favourite',
-              icon: Icon(Icons.favorite),
-            )
-          ]),
-      // TabBarView(children: [
-      //   CategoriesScreen(),
-      //   FavouriteScreen(),
-      // ])
+        onTap: selectPage,
+        currentIndex: selectedPageIndex,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.grey,
+        backgroundColor: Theme.of(context).primaryColor,
+        type: BottomNavigationBarType.fixed, // Change to fixed type
+        items: [
+          BottomNavigationBarItem(
+            label: 'Category',
+            icon: Icon(Icons.category),
+          ),
+          BottomNavigationBarItem(
+            label: 'Favourite',
+            icon: Icon(Icons.favorite),
+          )
+        ],
+      ),
     );
-    // );
   }
 }

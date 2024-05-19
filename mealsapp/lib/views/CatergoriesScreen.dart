@@ -8,19 +8,21 @@ class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      padding: EdgeInsets.all(25),
+      padding: const EdgeInsets.all(25),
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 200,
-        childAspectRatio: 1.5,
+        childAspectRatio: 3 / 2,
         mainAxisSpacing: 20,
         crossAxisSpacing: 20,
       ),
       children: DUMMY_CATEGORIES
-          .map((catData) => CategoryItem(
-                id: catData.id,
-                title: catData.title,
-                color: catData.color,
-              ))
+          .map(
+            (catData) => CategoryItem(
+              id: catData.id,
+              title: catData.title,
+              color: catData.color,
+            ),
+          )
           .toList(),
     );
   }
